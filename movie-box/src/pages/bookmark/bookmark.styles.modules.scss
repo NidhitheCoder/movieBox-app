@@ -1,8 +1,9 @@
 .bookmark-container{
+    margin-top: 70px;
     height: 100vh;
-    width: 100%;
+    padding: 30px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-color: #FCF5C7;
+    background-color: #fcf1f1;
 }

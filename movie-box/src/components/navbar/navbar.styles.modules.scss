@@ -1,13 +1,16 @@
 .header{
-    background:#EAF2EF;
+    background:#ffffff;
     width: 100vw;
     height: 70px;
     position: fixed;
+    font-size: 14px;
+    font-weight: 700;
     top:0;
     left:0;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0px 5px 10px #888888;
+    box-shadow: 0px 5px 10px #0032f72b;
+    z-index: 1000;
 
     .logo{
         width: 100px;
@@ -28,13 +31,23 @@
 
     .nav-list li a{
         text-decoration: none;
-        color:#000;
+        color:#333;
+    }
+
+    .nav-list li a:hover{
+        color:#0957c1;
     }
 
     .nav-list li button{
         background: transparent;
         border: none;
-        color: #000;
+        color: #333;
         min-width: 70px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    .nav-list li button:hover{
+        color: #0957c1;
     }
 }
