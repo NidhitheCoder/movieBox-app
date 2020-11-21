@@ -1,5 +1,5 @@
 import React from "react";
-import SlickCarousel from "../../components/slick-carousel/slickCarousel.component";
+import SlickCarousel from "../../components/slick-carousel/slick-carousel.component";
 import movieList from "../../assets/movielist";
 import './home.styles.modules.scss';
 

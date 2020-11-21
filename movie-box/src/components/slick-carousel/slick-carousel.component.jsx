@@ -19,14 +19,14 @@ class SlickCarousel extends React.Component {
       <div className="movieList-container">
         <div className="category-section">
           <h2>{category}</h2>
-          <Link className="see-more">See more</Link>
+          <Link className="see-more" to="/">See more</Link>
         </div>
         <Slider {...settings}>
           {movieList.map(movie => (
-            <div className="shadow-card">
-              <div className="card">
-                <h2 className="title">{movie.Title}</h2>
-                <img src={movie.Poster} alt={movie.Title} className="poster" />
+            <div className="shadow-card" key={movie.imdbID}>
+              <div className="card" >
+              <h5 className="title"> {movie.Title}</h5>
+              <img src={movie.Poster} className="poster" alt={movie.Title} />
               </div>
             </div>
           ))}
