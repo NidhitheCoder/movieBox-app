@@ -5,6 +5,8 @@ import "./slick-carousel.styles.modules.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import MovieCard from "../movieCard/movieCard.component";
+
 class SlickCarousel extends React.Component {
   render() {
     const { movieList, category } = this.props;
@@ -15,20 +17,18 @@ class SlickCarousel extends React.Component {
       slidesToShow: 5,
       slidesToScroll: 4
     };
+
     return (
       <div className="movieList-container">
         <div className="category-section">
           <h2>{category}</h2>
-          <Link className="see-more" to="/">See more</Link>
+          <Link className="see-more" to="/">
+            See more
+          </Link>
         </div>
         <Slider {...settings}>
           {movieList.map(movie => (
-            <div className="shadow-card" key={movie.imdbID}>
-              <div className="card" >
-              <h5 className="title"> {movie.Title}</h5>
-              <img src={movie.Poster} className="poster" alt={movie.Title} />
-              </div>
-            </div>
+            <MovieCard movieItem={movie} />
           ))}
         </Slider>
       </div>
