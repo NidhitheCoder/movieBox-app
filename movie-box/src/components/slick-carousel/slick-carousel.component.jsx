@@ -28,7 +28,7 @@ class SlickCarousel extends React.Component {
         </div>
         <Slider {...settings}>
           {movieList.map(movie => (
-            <MovieCard movieItem={movie} />
+            <MovieCard movieItem={movie}  key={movie.imdbID}/>
           ))}
         </Slider>
       </div>
