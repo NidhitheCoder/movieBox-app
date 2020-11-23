@@ -6,8 +6,8 @@ import {setCurrentMovieAsync} from '../../redux/movieCollection/movieCollection.
 
 const movieCard = props => {
   const { movieItem, history,setCurrentMovie } = props;
-  const openMovieDetails = () => {
-    setCurrentMovie(movieItem.imdbID);
+  const openMovieDetails = async () => {
+    await setCurrentMovie(movieItem.imdbID)
     history.push("/details");
   };
 

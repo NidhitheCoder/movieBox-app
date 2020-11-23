@@ -8,10 +8,10 @@ export const currentMovieAddedToStore =(movie) =>({
 });
 
 export const setCurrentMovieAsync = (movieId) => {
-    return  dispatch => {
-        axios.get(`http://www.omdbapi.com/?i=${movieId}&apikey=2e43f9cf`)
-        .then(data => {
-            dispatch(currentMovieAddedToStore(data.data))
+    return async dispatch => {
+        await axios.get(`http://www.omdbapi.com/?i=${movieId}&apikey=2e43f9cf`)
+        .then(async data => {
+            dispatch( await currentMovieAddedToStore(data.data))
         });
     }
 };
