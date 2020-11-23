@@ -9,8 +9,8 @@ import MovieCard from "../movieCard/movieCard.component";
 
 class SlickCarousel extends React.Component {
   render() {
-    const { movieList, category } = this.props;
-    const settings = {
+    const { movieList, category,history } = this.props;
+        const settings = {
       dots: false,
       infinite: true,
       speed: 500,
@@ -28,7 +28,7 @@ class SlickCarousel extends React.Component {
         </div>
         <Slider {...settings}>
           {movieList.map(movie => (
-            <MovieCard movieItem={movie}  key={movie.imdbID}/>
+            <MovieCard movieItem={movie} history = {history}  key={movie.imdbID}/>
           ))}
         </Slider>
       </div>

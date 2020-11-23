@@ -1,14 +1,14 @@
 import React from "react";
-import axios from "axios";
+import {connect} from 'react-redux'
 import "./movieCard.styles.modules.scss";
 
-const movieCard = (props) => {
-    const {movieItem} = props;
+import {setCurrentMovieAsync} from '../../redux/movieCollection/movieCollection.action';
+
+const movieCard = props => {
+  const { movieItem, history,setCurrentMovie } = props;
   const openMovieDetails = () => {
-    axios.get(`http://www.omdbapi.com/?i=${movieItem.imdbID}&apikey=2e43f9cf`)
-    .then(data => {
-        console.log(data)
-    });
+    setCurrentMovie(movieItem.imdbID);
+    history.push("/details");
   };
 
   return (
@@ -21,4 +21,8 @@ const movieCard = (props) => {
   );
 };
 
-export default movieCard;
+const mapDispatchToProps = dispatch => ({
+  setCurrentMovie: (movieId) => dispatch(setCurrentMovieAsync(movieId))
+});
+
+export default connect(null,mapDispatchToProps)(movieCard);
