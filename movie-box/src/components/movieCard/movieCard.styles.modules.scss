@@ -44,5 +44,26 @@
     background-position: center;
     background-size: cover;
   }
+
+  .bookmarkBtn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    display: none;
+    z-index: 10;
+    background: rgb(13, 154, 197);
+    border: none;
+    border-radius:0 0 8px 8px; 
+    color: white;
+    font-size: 16px;
+  }
+
+  &:hover .bookmarkBtn{
+    display:block;
+  }
 }
+
+
 }
