@@ -1,8 +1,34 @@
 .details-container {
   width: 100vw;
   min-height: 100vh;
-  .poster {
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ba9dca;
+  padding: 5vh;
+
+  .movie-poster {
+    width: 20vw;
+    height: 50vh;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    margin: 10vh;
+  }
+
+  .movie-title {
+    text-transform: uppercase;
+    margin: 10px;
+  }
+
+  .detail-box {
+    width: 40vw;
+    text-align: left;
+
+    p {
+      margin: 3vh;
+      h5 {
+        color: red;
+      }
+    }
   }
 }

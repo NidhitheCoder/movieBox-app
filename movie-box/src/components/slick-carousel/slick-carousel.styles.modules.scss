@@ -1,14 +1,15 @@
 .movieList-container {
-  width: 95vw;
+  width: 90vw;
   margin: 5vh auto;
 
   .category-section {
     display: flex;
     justify-content: space-between;
     padding: 15px 0;
+    color: #fff;
 
     .see-more {
-      color: #0957c1;
+      color: #fff;
       text-decoration: none;
     }
   }
