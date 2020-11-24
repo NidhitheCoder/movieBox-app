@@ -1,4 +1,12 @@
-.container{
-    background: cyan;
-    color: rebeccapurple;
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  
+  .list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
 }

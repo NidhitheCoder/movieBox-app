@@ -6,3 +6,7 @@ export const addToBookmark = (bookmark, movie) => {
     return [...bookmark, movie];
   }
 };
+
+export const removeFromBookmark = (bookmark,movieId ) => {
+  return bookmark.filter(movie=> movie.imdbID !== movieId)
+}

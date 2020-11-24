@@ -9,27 +9,32 @@ import MovieCard from "../movieCard/movieCard.component";
 
 class SlickCarousel extends React.Component {
   render() {
-    const { movieList, category,history } = this.props;
-        const settings = {
+    const { movieList, category, history,bookmark} = this.props;
+    const settings = {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 4
+      slidesToShow: 6,
+      slidesToScroll: 5
     };
 
     return (
       <div className="movieList-container">
         <div className="category-section">
           <h2>{category}</h2>
-          <Link className="see-more" to="/">
+         {bookmark ?"" : <Link className="see-more" to="/">
             See more
-          </Link>
+          </Link>}
         </div>
-        <Slider {...settings}>
-          {movieList.map(movie => (
-            <MovieCard movieItem={movie} history = {history}  key={movie.imdbID}/>
-          ))}
+        <Slider {...settings}>  
+          {movieList &&
+            movieList.map(movie => (
+              <MovieCard
+                movieItem={movie}
+                history={history}
+                key={movie.imdbID}
+              />
+            ))}
         </Slider>
       </div>
     );
