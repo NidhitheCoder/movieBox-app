@@ -10,7 +10,6 @@ const Navbar = props => {
   const { changeValue, value } = props;
 
   const login = (e) => {
-    console.log("heyy inside login");
     console.log("value"+e.target)
     auth.login(()=>{
       console.log("change to login url")
