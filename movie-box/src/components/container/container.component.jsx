@@ -8,13 +8,13 @@ const Container = props => {
   return (
     <div className="container">
       <div className="list-container">
-        {movieList.length ? (
+        {movieList && movieList.length ? (
           movieList &&
           movieList.map(movie => (
             <MovieCard movieItem={movie} history={history} />
           ))
         ) : (
-          <EmptyItems message="No Bookmarked Items" />
+          <EmptyItems message="No Items found" />
         )}
       </div>
     </div>

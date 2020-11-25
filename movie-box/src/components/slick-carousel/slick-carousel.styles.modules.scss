@@ -12,6 +12,8 @@
     .see-more {
       color: rgba(242,244,246,.9);
       text-decoration: none; 
+      background: transparent;
+      border: none;
 
       &:hover{
         color: #0957c1;

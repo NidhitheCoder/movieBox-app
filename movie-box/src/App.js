@@ -5,6 +5,7 @@ import Home from "./pages/home/home.component";
 import Bookmark from "./pages/bookmark/bookmark.component";
 import Details from "./pages/details/detailsPage.component";
 import Dashboard from "./pages/dashboard/dashboard.component";
+import CategoryList from './pages/categoryList/categoryList.component';
 
 const App =() =>{
   return (
@@ -15,6 +16,7 @@ const App =() =>{
         <Route path="/bookmark" component={Bookmark} />
         <Route path="/details" component={Details} />
         <Route exact path="/" component={Dashboard} />
+        <Route path="/category/:categoryName" component={CategoryList} />
       </Switch>
     </div>
   );

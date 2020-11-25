@@ -1,7 +1,8 @@
 import movieCollectionActionTypes from "./movieCollection.types";
 
 const INITIAL_STATE = {
-  currentMovie: ""
+  currentMovie: "",
+  currentCategoryList: []
 };
 
 const movieReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ const movieReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentMovie: action.payload
+      };
+    case movieCollectionActionTypes.SET_CURRENT_CATEGORY_LIST:
+      return {
+        ...state,
+        currentCategoryList: action.payload
       };
     default:
       return { state };
