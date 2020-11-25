@@ -1,4 +1,14 @@
-.container{
-    background: cyan;
-    color: rebeccapurple;
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  
+  .list-container {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-row-gap: 0.3rem;
+  grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+
+  }
 }

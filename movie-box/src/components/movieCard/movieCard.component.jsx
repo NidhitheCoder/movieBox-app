@@ -1,28 +1,60 @@
 import React from "react";
-import {connect} from 'react-redux'
+import { connect } from "react-redux";
 import "./movieCard.styles.modules.scss";
 
-import {setCurrentMovieAsync} from '../../redux/movieCollection/movieCollection.action';
+import { setCurrentMovieAsync } from "../../redux/movieCollection/movieCollection.action";
+import { addMovieToBookmarkAsync,removeMovieFromBookmarkAsync} from "../../redux/bookmarkCollection/bookmarkCollection.action";
 
 const movieCard = props => {
-  const { movieItem, history,setCurrentMovie } = props;
+  const {
+    movieItem,
+    history,
+    setCurrentMovie,
+    setBookmarkMovie,
+    removeBookmarkMovie,
+    bookmarkList
+  } = props;
+  const isBookmarked = bookmarkList.find(
+    movie => movie.imdbID === movieItem.imdbID
+  );
   const openMovieDetails = async () => {
-    await setCurrentMovie(movieItem.imdbID)
+    await setCurrentMovie(movieItem.imdbID);
     history.push("/details");
   };
-
   return (
     <div className="shadow-card">
       <div className="card" onClick={openMovieDetails}>
-        <h5 className="title"> {movieItem.Title}</h5>
         <img src={movieItem.Poster} className="poster" alt={movieItem.Title} />
+        <div className="glass-shadow">
+          <h5 className="title"> {movieItem.Title}</h5>
+          <p className="details">{movieItem.Runtime},{movieItem.Genre},{movieItem.Year}</p>
+          <p>{movieItem.Language}</p>
+          <p className="plot">Plot : {movieItem.Plot}</p>
+          <button
+            onClick={e => {
+              isBookmarked ? removeBookmarkMovie(movieItem.imdbID) :
+              setBookmarkMovie(movieItem);
+              e.stopPropagation();
+            }}
+            className={isBookmarked ? "bookmarkBtn bookmarked" : "bookmarkBtn"}
+          >
+          <span>{isBookmarked ? "Remove from Bookmark " : "Add to Bookmark "}</span>
+            {isBookmarked ? "-" : "+"}
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentMovie: (movieId) => dispatch(setCurrentMovieAsync(movieId))
+  setCurrentMovie: movieId => dispatch(setCurrentMovieAsync(movieId)),
+  setBookmarkMovie: movie => dispatch(addMovieToBookmarkAsync(movie)),
+  removeBookmarkMovie: movieId => dispatch(removeMovieFromBookmarkAsync(movieId))
 });
 
-export default connect(null,mapDispatchToProps)(movieCard);
+const mapStateToProps = state => ({
+  bookmarkList: state.bookmark.bookmark
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(movieCard);

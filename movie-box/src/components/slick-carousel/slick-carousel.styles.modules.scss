@@ -6,11 +6,18 @@
     display: flex;
     justify-content: space-between;
     padding: 15px 0;
-    color: #fff;
+    font-weight: 200;
+    color: rgba(242,244,246,.9);
 
     .see-more {
-      color: #fff;
-      text-decoration: none;
+      color: rgba(242,244,246,.9);
+      text-decoration: none; 
+      background: transparent;
+      border: none;
+
+      &:hover{
+        color: #0957c1;
+      }
     }
   }
 }

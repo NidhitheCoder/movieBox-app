@@ -7,7 +7,6 @@ class DetailsPage extends React.Component {
     const movie = this.props.movie.currentMovie
       ? this.props.movie.currentMovie
       : "";
-    console.log("movie", movie);
     let moviePoster = movie.Poster ? movie.Poster : "sample.jpg";
     moviePoster = moviePoster.replace("V1_SX300", "V1_SX2000");
     return (

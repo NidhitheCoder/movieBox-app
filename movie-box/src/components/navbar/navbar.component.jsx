@@ -1,37 +1,57 @@
 import "./navbar.styles.modules.scss";
 import { connect } from "react-redux";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import Logo from '../../assets/logoMovie.png';
-import auth from '../../auth/auth';
-
+import Logo from "../../assets/logoMovie.png";
+import auth from "../../auth/auth";
 
 const Navbar = props => {
-  const { changeValue, value } = props;
+  const { loginAsync, logoutAsync, value } = props;
 
-  const login = (e) => {
-    console.log("heyy inside login");
-    console.log("value"+e.target)
-    auth.login(()=>{
-      console.log("change to login url")
-    })
-    changeValue();
-  }
-  
+  const login = e => {
+    console.log("we are in login");
+    auth.login(() => {
+      //  location.pathname.replace("/home");
+    });
+    loginAsync();
+  };
+
+  const logout = e => {
+    console.log("logouted");
+    auth.logout(() => {
+      // history.push("/");
+    });
+    logoutAsync();
+  };
+
   return (
     <div className="header">
-    <img src={Logo} alt="logo" className="logo"/>
-      <ul className="nav-list">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/bookmark">Bookmark</Link>
-        </li>
-        <li>
-          <button onClick={login}>{value}</button>
-        </li>
-      </ul>
+      <Link to="/home">
+        <img src={Logo} alt="logo" className="logo" />
+      </Link>
+      {value === "LOGOUT" ? (
+        <ul className="nav-list">
+          <li>
+            <Link to="/home">HOME</Link>
+          </li>
+          <li>
+            <Link to="/bookmark">BOOKMARK</Link>
+          </li>
+          <li>
+            <button onClick={value === "LOGIN" ? login : logout}>
+              {value}
+            </button>
+          </li>
+        </ul>
+      ) : (
+        <ul className="nav-list">
+          <li>
+            <button onClick={value === "LOGIN" ? login : logout}>
+              {value}
+            </button>
+          </li>
+        </ul>
+      )}
     </div>
   );
 };
@@ -41,6 +61,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  changeValue: () => dispatch({ type: "LOGOUT" })
+  loginAsync: () => dispatch({ type: "LOGIN" }),
+  logoutAsync: () => dispatch({ type: "LOGOUT" })
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

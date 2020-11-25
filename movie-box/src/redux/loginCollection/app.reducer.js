@@ -7,8 +7,14 @@ const appReducer = (state = initialState, action) => {
     case 'LOGOUT':
       return {
         ...state,
-        value: "LOGOUT"
+        value: "LOGIN"
       };
+
+      case 'LOGIN' :
+        return {
+          ...state.value,
+          value:"LOGOUT"
+        }
     default:
       return state;
   }
