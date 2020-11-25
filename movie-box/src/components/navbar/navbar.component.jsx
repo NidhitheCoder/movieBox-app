@@ -6,32 +6,52 @@ import Logo from "../../assets/logoMovie.png";
 import auth from "../../auth/auth";
 
 const Navbar = props => {
-  const { changeValue, value } = props;
+  const { loginAsync, logoutAsync, value } = props;
 
   const login = e => {
-    console.log("value" + e.target);
+    console.log("we are in login");
     auth.login(() => {
-      console.log("change to login url");
+      //  location.pathname.replace("/home");
     });
-    changeValue();
+    loginAsync();
+  };
+
+  const logout = e => {
+    console.log("logouted");
+    auth.logout(() => {
+      // history.push("/");
+    });
+    logoutAsync();
   };
 
   return (
     <div className="header">
-      <Link to="/">
+      <Link to="/home">
         <img src={Logo} alt="logo" className="logo" />
       </Link>
-      <ul className="nav-list">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/bookmark">Bookmark</Link>
-        </li>
-        <li>
-          <button onClick={login}>{value}</button>
-        </li>
-      </ul>
+      {value === "LOGOUT" ? (
+        <ul className="nav-list">
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            <Link to="/bookmark">Bookmark</Link>
+          </li>
+          <li>
+            <button onClick={value === "LOGIN" ? login : logout}>
+              {value}
+            </button>
+          </li>
+        </ul>
+      ) : (
+        <ul className="nav-list">
+          <li>
+            <button onClick={value === "LOGIN" ? login : logout}>
+              {value}
+            </button>
+          </li>
+        </ul>
+      )}
     </div>
   );
 };
@@ -41,6 +61,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  changeValue: () => dispatch({ type: "LOGOUT" })
+  loginAsync: () => dispatch({ type: "LOGIN" }),
+  logoutAsync: () => dispatch({ type: "LOGOUT" })
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

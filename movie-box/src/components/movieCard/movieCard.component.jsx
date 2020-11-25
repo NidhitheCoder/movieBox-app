@@ -29,7 +29,7 @@ const movieCard = props => {
           <h5 className="title"> {movieItem.Title}</h5>
           <p className="details">{movieItem.Runtime},{movieItem.Genre},{movieItem.Year}</p>
           <p>{movieItem.Language}</p>
-          <p class="plot">Plot : {movieItem.Plot}</p>
+          <p className="plot">Plot : {movieItem.Plot}</p>
           <button
             onClick={e => {
               isBookmarked ? removeBookmarkMovie(movieItem.imdbID) :
