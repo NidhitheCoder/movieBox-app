@@ -428,6 +428,133 @@ const movieList = [
     Production: "N/A",
     Website: "N/A",
     Response: "True"
+  },
+  {
+    Title: "Terminator 2: Judgment Day",
+    Year: "1991",
+    Rated: "R",
+    Released: "03 Jul 1991",
+    Runtime: "137 min",
+    Genre: "Action, Sci-Fi",
+    Director: "James Cameron",
+    Writer: "James Cameron, William Wisher",
+    Actors:
+      "Arnold Schwarzenegger, Linda Hamilton, Edward Furlong, Robert Patrick",
+    Plot:
+      "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her teenage son, John Connor, from a more advanced and powerful cyborg.",
+    Language: "English, Spanish",
+    Country: "USA, France",
+    Awards: "Won 4 Oscars. Another 32 wins & 33 nominations.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    Ratings: [
+      { Source: "Internet Movie Database", Value: "8.5/10" },
+      { Source: "Rotten Tomatoes", Value: "93%" },
+      { Source: "Metacritic", Value: "75/100" }
+    ],
+    Metascore: "75",
+    imdbRating: "8.5",
+    imdbVotes: "982,640",
+    imdbID: "tt0103064",
+    Type: "movie",
+    DVD: "N/A",
+    BoxOffice: "N/A",
+    Production:
+      "Pacific Western, Lightstorm Entertainment, Carolco Pictures Inc.",
+    Website: "N/A",
+    Response: "True"
+  },
+  {
+    Title: "Fun",
+    Year: "1994",
+    Rated: "Unrated",
+    Released: "14 Apr 1995",
+    Runtime: "105 min",
+    Genre: "Crime, Drama",
+    Director: "Rafal Zielinski",
+    Writer: "James Bosley (play)",
+    Actors: "Renée Humphrey, Alicia Witt, William R. Moses, Leslie Hope",
+    Plot:
+      "Hillary and Bonnie meet one morning by the side of the road. They become fast friends, share their secrets, and on a rising wave of frenzy later that afternoon, murder an old woman. They did it, they say later, for fun.",
+    Language: "English",
+    Country: "Canada",
+    Awards: "5 wins & 4 nominations.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMTYwMjU5NzM5Nl5BMl5BanBnXkFtZTcwMzQ3MTk1NA@@._V1_SX300.jpg",
+    Ratings: [
+      { Source: "Internet Movie Database", Value: "6.9/10" },
+      { Source: "Rotten Tomatoes", Value: "82%" }
+    ],
+    Metascore: "N/A",
+    imdbRating: "6.9",
+    imdbVotes: "1,197",
+    imdbID: "tt0109855",
+    Type: "movie",
+    DVD: "N/A",
+    BoxOffice: "N/A",
+    Production: "N/A",
+    Website: "N/A",
+    Response: "True"
+  },
+  {
+    Title: "Good Will Hunting",
+    Year: "1997",
+    Rated: "R",
+    Released: "09 Jan 1998",
+    Runtime: "126 min",
+    Genre: "Drama, Romance",
+    Director: "Gus Van Sant",
+    Writer: "Matt Damon, Ben Affleck",
+    Actors: "Matt Damon, Ben Affleck, Stellan Skarsgård, John Mighton",
+    Plot:
+      "Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life.",
+    Language: "English",
+    Country: "USA",
+    Awards: "Won 2 Oscars. Another 22 wins & 61 nominations.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    Ratings: [
+      { Source: "Internet Movie Database", Value: "8.3/10" },
+      { Source: "Rotten Tomatoes", Value: "98%" },
+      { Source: "Metacritic", Value: "70/100" }
+    ],
+    Metascore: "70",
+    imdbRating: "8.3",
+    imdbVotes: "846,117",
+    imdbID: "tt0119217",
+    Type: "movie",
+    DVD: "N/A",
+    BoxOffice: "N/A",
+    Production:
+      "Miramax Films, Be Gentlemen Limited Partnership, Lawrence Bender Productions",
+    Website: "N/A",
+    Response: "True"
+  },
+  {
+    Title: "Hunter",
+    Year: "1984–1991",
+    Rated: "TV-PG",
+    Released: "18 Sep 1984",
+    Runtime: "48 min",
+    Genre: "Action, Crime, Drama, Mystery, Thriller",
+    Director: "N/A",
+    Writer: "Frank Lupo",
+    Actors: "Fred Dryer, Stepfanie Kramer, Charles Hallahan",
+    Plot:
+      "Rick Hunter is a renegade cop who bends the rules and takes justice into his own hands. Partnered with the equally stunning and rebellious Sgt. McCall, the tough-minded duo set out to crack down on L.A.'s slimiest criminals.",
+    Language: "English",
+    Country: "USA",
+    Awards: "Nominated for 3 Primetime Emmys. Another 2 wins & 4 nominations.",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BMTcxMjE2NjU2MF5BMl5BanBnXkFtZTcwNjExNjczMQ@@._V1_SX300.jpg",
+    Ratings: [{ Source: "Internet Movie Database", Value: "6.8/10" }],
+    Metascore: "N/A",
+    imdbRating: "6.8",
+    imdbVotes: "3,397",
+    imdbID: "tt0086734",
+    Type: "series",
+    totalSeasons: "7",
+    Response: "True"
   }
 ];
 

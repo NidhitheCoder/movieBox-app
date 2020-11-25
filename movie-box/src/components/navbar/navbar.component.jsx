@@ -32,10 +32,10 @@ const Navbar = props => {
       {value === "LOGOUT" ? (
         <ul className="nav-list">
           <li>
-            <Link to="/home">Home</Link>
+            <Link to="/home">HOME</Link>
           </li>
           <li>
-            <Link to="/bookmark">Bookmark</Link>
+            <Link to="/bookmark">BOOKMARK</Link>
           </li>
           <li>
             <button onClick={value === "LOGIN" ? login : logout}>

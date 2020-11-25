@@ -11,7 +11,7 @@ const Container = props => {
         {movieList && movieList.length ? (
           movieList &&
           movieList.map(movie => (
-            <MovieCard movieItem={movie} history={history} />
+            <MovieCard movieItem={movie} history={history} key={movie.imdbID}/>
           ))
         ) : (
           <EmptyItems message="No Items found" />

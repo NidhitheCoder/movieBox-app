@@ -18,7 +18,7 @@ const movieReducer = (state = INITIAL_STATE, action) => {
         currentCategoryList: action.payload
       };
     default:
-      return { state };
+      return state;
   }
 };
 

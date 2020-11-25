@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
-import  Container  from '../../components/container/container.component';
-import './categoryList.styles.modules.scss';
+import Container from "../../components/container/container.component";
+import "./categoryList.styles.modules.scss";
 
 const CategoryList = props => {
-  const { movieList, match,history } = props;
+  const { movieList, match, history } = props;
   const title = match.params.categoryName;
   return (
     <div className="category-list-container">
