@@ -1,5 +1,5 @@
 .header{
-    background:#ffffff;
+    background:#0f171e;
     width: 100vw;
     height: 70px;
     position: fixed;
@@ -31,7 +31,8 @@
 
     .nav-list li a{
         text-decoration: none;
-        color:#333;
+        color:rgba(242,244,246,.9);
+        font-weight: 400;
     }
 
     .nav-list li a:hover{
@@ -41,9 +42,9 @@
     .nav-list li button{
         background: transparent;
         border: none;
-        color: #333;
+        color: rgba(242,244,246,.9);
         min-width: 70px;
-        font-weight: 700;
+        font-weight: 400;
         font-size: 14px;
     }
 

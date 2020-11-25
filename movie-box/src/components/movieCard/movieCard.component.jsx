@@ -38,6 +38,7 @@ const movieCard = props => {
             }}
             className={isBookmarked ? "bookmarkBtn bookmarked" : "bookmarkBtn"}
           >
+          <span>{isBookmarked ? "Remove from Bookmark " : "Add to Bookmark "}</span>
             {isBookmarked ? "-" : "+"}
           </button>
         </div>

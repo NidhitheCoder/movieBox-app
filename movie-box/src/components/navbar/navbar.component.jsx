@@ -1,25 +1,26 @@
 import "./navbar.styles.modules.scss";
 import { connect } from "react-redux";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import Logo from '../../assets/logoMovie.png';
-import auth from '../../auth/auth';
-
+import Logo from "../../assets/logoMovie.png";
+import auth from "../../auth/auth";
 
 const Navbar = props => {
   const { changeValue, value } = props;
 
-  const login = (e) => {
-    console.log("value"+e.target)
-    auth.login(()=>{
-      console.log("change to login url")
-    })
+  const login = e => {
+    console.log("value" + e.target);
+    auth.login(() => {
+      console.log("change to login url");
+    });
     changeValue();
-  }
-  
+  };
+
   return (
     <div className="header">
-    <img src={Logo} alt="logo" className="logo"/>
+      <Link to="/">
+        <img src={Logo} alt="logo" className="logo" />
+      </Link>
       <ul className="nav-list">
         <li>
           <Link to="/">Home</Link>

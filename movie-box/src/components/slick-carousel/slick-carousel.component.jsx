@@ -9,7 +9,7 @@ import MovieCard from "../movieCard/movieCard.component";
 
 class SlickCarousel extends React.Component {
   render() {
-    const { movieList, category, history,bookmark} = this.props;
+    const { movieList, category, history, bookmark } = this.props;
     const settings = {
       dots: false,
       infinite: true,
@@ -19,23 +19,33 @@ class SlickCarousel extends React.Component {
     };
 
     return (
-      <div className="movieList-container">
-        <div className="category-section">
-          <h2>{category}</h2>
-         {bookmark ?"" : <Link className="see-more" to="/">
-            See more
-          </Link>}
-        </div>
-        <Slider {...settings}>  
-          {movieList &&
-            movieList.map(movie => (
-              <MovieCard
-                movieItem={movie}
-                history={history}
-                key={movie.imdbID}
-              />
-            ))}
-        </Slider>
+      <div>
+        {movieList.length ? (
+          <div className="movieList-container">
+            <div className="category-section">
+              <h2>{category}</h2>
+              {bookmark ? (
+                ""
+              ) : (
+                <Link className="see-more" to="/">
+                  See more
+                </Link>
+              )}
+            </div>
+            <Slider {...settings}>
+              {movieList &&
+                movieList.map(movie => (
+                  <MovieCard
+                    movieItem={movie}
+                    history={history}
+                    key={movie.imdbID}
+                  />
+                ))}
+            </Slider>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
