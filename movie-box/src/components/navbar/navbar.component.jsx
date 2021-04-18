@@ -32,6 +32,9 @@ const Navbar = props => {
       {value === "LOGOUT" ? (
         <ul className="nav-list">
           <li>
+            <div>Search</div>
+          </li>
+          <li>
             <Link to="/home">HOME</Link>
           </li>
           <li>
@@ -45,6 +48,9 @@ const Navbar = props => {
         </ul>
       ) : (
         <ul className="nav-list">
+          <li>
+          <input type="text" className="search-input" placeholder="Search Movies.."></input>
+          </li>
           <li>
             <button onClick={value === "LOGIN" ? login : logout}>
               {value}
