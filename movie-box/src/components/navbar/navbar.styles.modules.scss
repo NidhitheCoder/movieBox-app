@@ -39,10 +39,12 @@
             font-size: 12px;
             transition: width 2s;
             transition-delay: 1s;
+            outline: none;
 
             &:focus{
                 width: 300px;
                 border-bottom: 1px solid #0957c1;
+                outline: none;
             }
         }
     }

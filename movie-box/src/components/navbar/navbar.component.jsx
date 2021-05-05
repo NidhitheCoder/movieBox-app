@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../assets/logoMovie.png";
 import auth from "../../auth/auth";
+import { setSearchKeyWord } from '../../redux/searchKey/searchKey.action';
 
-const Navbar = props => {
-  const { loginAsync, logoutAsync, value } = props;
+const Navbar = (props) => {
+  const { loginAsync, logoutAsync, value, setkeywordAsync } = props;
 
-  const login = e => {
+  const login = (e) => {
     console.log("we are in login");
     auth.login(() => {
       //  location.pathname.replace("/home");
@@ -16,13 +17,17 @@ const Navbar = props => {
     loginAsync();
   };
 
-  const logout = e => {
+  const logout = (e) => {
     console.log("logouted");
     auth.logout(() => {
       // history.push("/");
     });
     logoutAsync();
   };
+
+  const searchWithText = (e) => {
+    setkeywordAsync(e.target.value)
+  }
 
   return (
     <div className="header">
@@ -32,7 +37,12 @@ const Navbar = props => {
       {value === "LOGOUT" ? (
         <ul className="nav-list">
           <li>
-            <div>Search</div>
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search Movies.."
+              onKeyUp={searchWithText}
+            ></input>
           </li>
           <li>
             <Link to="/home">HOME</Link>
@@ -49,7 +59,12 @@ const Navbar = props => {
       ) : (
         <ul className="nav-list">
           <li>
-          <input type="text" className="search-input" placeholder="Search Movies.."></input>
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search Movies.."
+              onKeyUp={searchWithText}
+            ></input>
           </li>
           <li>
             <button onClick={value === "LOGIN" ? login : logout}>
@@ -62,12 +77,13 @@ const Navbar = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  value: state.app.value
+const mapStateToProps = (state) => ({
+  value: state.app.value,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   loginAsync: () => dispatch({ type: "LOGIN" }),
-  logoutAsync: () => dispatch({ type: "LOGOUT" })
+  logoutAsync: () => dispatch({ type: "LOGOUT" }),
+  setkeywordAsync: keyword => dispatch(setSearchKeyWord(keyword)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
