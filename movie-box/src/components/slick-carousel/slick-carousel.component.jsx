@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { AddCurrentCategoryListAsync } from "../../redux/movieCollection/movieCollection.action";
 import MovieCard from "../movieCard/movieCard.component";
 import Container from "../container/container.component";
+import EmptyItems from "../emptyItems/emptyItems.component";
 
 class SlickCarousel extends React.Component {
   render() {
@@ -17,7 +18,8 @@ class SlickCarousel extends React.Component {
       history,
       bookmark,
       slideCount,
-      AddCurrentCategoryList
+      AddCurrentCategoryList,
+      searchKeyWord,
     } = this.props;
     const slideSHow = slideCount ? slideCount : 6;
     const settings = {
@@ -25,9 +27,17 @@ class SlickCarousel extends React.Component {
       infinite: false,
       speed: 500,
       slidesToShow: slideSHow,
-      slidesToScroll: slideSHow
+      slidesToScroll: slideSHow,
     };
 
+    let moviesList;
+    if (searchKeyWord !== "") {
+      moviesList = movieList.filter(({ Title }) =>
+        Title.toLowerCase().includes(searchKeyWord.toLowerCase())
+      );
+    } else {
+      moviesList = movieList;
+    }
     const openCategoryList = async () => {
       await AddCurrentCategoryList(movieList);
       history.push(`/category/${category}`);
@@ -35,22 +45,22 @@ class SlickCarousel extends React.Component {
 
     return (
       <div>
-        {movieList.length ? (
+        <div className="category-section">
+          <h2>{category}</h2>
+          {bookmark || !moviesList.length ? (
+            ""
+          ) : (
+            <button className="see-more" onClick={openCategoryList}>
+              See more
+            </button>
+          )}
+        </div>
+        {moviesList.length ? (
           <div className="movieList-container">
-            <div className="category-section">
-              <h2>{category}</h2>
-              {bookmark ? (
-                ""
-              ) : (
-                <button className="see-more" onClick={openCategoryList}>
-                  See more
-                </button>
-              )}
-            </div>
-            {movieList.length > 5 ? (
+            {moviesList.length > 5 ? (
               <Slider {...settings}>
-                {movieList &&
-                  movieList.map((movie, index) => {
+                {moviesList &&
+                  moviesList.map((movie, index) => {
                     if (index < 10) {
                       return (
                         <MovieCard
@@ -64,20 +74,24 @@ class SlickCarousel extends React.Component {
                   })}
               </Slider>
             ) : (
-              <Container movieList={movieList} history={history} />
+              <Container movieList={moviesList} history={history} />
             )}
           </div>
         ) : (
-          ""
+          <EmptyItems message="No Items found" />
         )}
       </div>
     );
   }
 }
 
-const dispatchStateToProps = dispatch => ({
-  AddCurrentCategoryList: movieList =>
-    dispatch(AddCurrentCategoryListAsync(movieList))
+const dispatchStateToProps = (dispatch) => ({
+  AddCurrentCategoryList: (movieList) =>
+    dispatch(AddCurrentCategoryListAsync(movieList)),
 });
 
-export default connect(null, dispatchStateToProps)(SlickCarousel);
+const mapStateToProps = (state) => ({
+  searchKeyWord: state.searchKey.searchKeyWord,
+});
+
+export default connect(mapStateToProps, dispatchStateToProps)(SlickCarousel);

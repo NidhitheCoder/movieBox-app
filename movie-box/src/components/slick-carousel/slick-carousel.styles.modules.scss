@@ -1,23 +1,25 @@
 .movieList-container {
   width: 90vw;
   margin: 5vh auto;
+}
 
-  .category-section {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 0;
-    font-weight: 200;
-    color: rgba(242,244,246,.9);
+.category-section {
+  width: 90vw;
+  margin: 5vh auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  font-weight: 200;
+  color: rgba(242, 244, 246, 0.9);
 
-    .see-more {
-      color: rgba(242,244,246,.9);
-      text-decoration: none; 
-      background: transparent;
-      border: none;
+  .see-more {
+    color: rgba(242, 244, 246, 0.9);
+    text-decoration: none;
+    background: transparent;
+    border: none;
 
-      &:hover{
-        color: #0957c1;
-      }
+    &:hover {
+      color: #0957c1;
     }
   }
 }
