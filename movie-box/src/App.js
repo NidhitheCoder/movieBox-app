@@ -6,12 +6,14 @@ import Bookmark from "./pages/bookmark/bookmark.component";
 import Details from "./pages/details/detailsPage.component";
 import Dashboard from "./pages/dashboard/dashboard.component";
 import CategoryList from './pages/categoryList/categoryList.component';
+import authPage from './pages/authPage/authPage.component';
 
 const App =() =>{
   return (
     <div className="App">
     <Navbar/>
       <Switch>
+        <Route path="/login" component={authPage} />
         <Route  path="/home" component={Home} />
         <Route path="/bookmark" component={Bookmark} />
         <Route path="/details" component={Details} />

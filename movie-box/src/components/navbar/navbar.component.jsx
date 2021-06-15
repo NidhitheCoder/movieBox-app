@@ -12,7 +12,7 @@ const Navbar = (props) => {
   const login = (e) => {
     console.log("we are in login");
     auth.login(() => {
-      //  location.pathname.replace("/home");
+      //  location.pathname.replace("/login");
     });
     loginAsync();
   };
