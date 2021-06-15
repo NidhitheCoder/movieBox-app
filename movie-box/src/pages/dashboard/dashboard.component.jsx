@@ -8,12 +8,14 @@ const DashBoard = props => {
   const { history, bookmarkList } = props;
   return (
     <div className="dashboard-container">
-      <SlickCarousel
-        category="WATCHLIST"
-        movieList={bookmarkList}
-        history={history}
-        bookmark="false"
-      />
+      {bookmarkList.length &&
+        <SlickCarousel
+          category="WATCHLIST"
+          movieList={bookmarkList}
+          history={history}
+          bookmark="false"
+        />
+      }
       <SlickCarousel
         category="NOW PLAYING"
         movieList={movieList}
